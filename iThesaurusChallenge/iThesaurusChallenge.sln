@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iThesaurusChallenge", "iThesaurusChallenge\iThesaurusChallenge.csproj", "{7E64924C-2F24-43B9-BABB-B1340EFEC9F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{4522D2FB-4150-4A59-A34B-C793F26C97B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E64924C-2F24-43B9-BABB-B1340EFEC9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E64924C-2F24-43B9-BABB-B1340EFEC9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E64924C-2F24-43B9-BABB-B1340EFEC9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E64924C-2F24-43B9-BABB-B1340EFEC9F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4522D2FB-4150-4A59-A34B-C793F26C97B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4522D2FB-4150-4A59-A34B-C793F26C97B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4522D2FB-4150-4A59-A34B-C793F26C97B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4522D2FB-4150-4A59-A34B-C793F26C97B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
