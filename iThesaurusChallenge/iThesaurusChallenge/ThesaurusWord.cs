@@ -15,7 +15,7 @@ namespace iThesaurusChallenge
         /// <summary>
         /// Current name
         /// </summary>
-        private readonly string _name;
+        private readonly string _targetWord;
 
         /// <summary>
         /// List of synonym
@@ -25,10 +25,10 @@ namespace iThesaurusChallenge
         /// <summary>
         /// Initializes a new instance of the <see cref="ThesaurusWord"/> class.
         /// </summary>
-        /// <param name="name">The name.</param>
-        public ThesaurusWord(string name)
+        /// <param name="word">The name.</param>
+        public ThesaurusWord(string word)
         {
-            _name = name;
+            _targetWord = word;
             _synonymsList = new List<string>();
         }
 
@@ -47,9 +47,9 @@ namespace iThesaurusChallenge
         /// Gets the name
         /// </summary>
         /// <returns>Name</returns>
-        public string GetName()
+        public string GetTargetWord()
         {
-            return _name;
+            return _targetWord;
         }
 
         /// <summary>
@@ -58,7 +58,21 @@ namespace iThesaurusChallenge
         /// <param name="synonyms">The synonyms list</param>
         public void AddSynonyms(IEnumerable<string> synonyms)
         {
+            if (synonyms == null) return;
 
+            _synonymsList.Clear(); // make sure that the synonym list is reset
+
+            var candidateWordList = synonyms as IList<string> ?? synonyms.ToList();
+            foreach (var word in candidateWordList)
+            {
+                if (!candidateWordList.Contains(word) && word != _targetWord)
+                {
+                    _synonymsList.Add(word);
+                }
+            }
+            // possibly better solution using linq -- see: https://www.dotnetperls.com/union - Union removes duplicates... it combines the two collections and then uses Distinct() on them, removing duplicate elements.
+            // var synonymListWithoutName = synonyms.Where(x => x != _targetWord);
+            // _synonymsList = _synonymsList.Union(synonymListWithoutName).ToList();
         }
 
         #endregion
