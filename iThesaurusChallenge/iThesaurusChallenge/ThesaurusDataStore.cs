@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace iThesaurusChallenge
 {
-    public class ThesaurusDataStore : IThesuarusWordRepository
+    public class ThesaurusDataStore : IThesaurusWordRepository
     {
         /// <summary>
         /// The thesaurus words dictionary
@@ -28,10 +28,10 @@ namespace iThesaurusChallenge
                 return;
             }
 
-            if (!_thesaurusWordsDictionary.ContainsKey(thesaurusWord.GetTargetWord()))
-                _thesaurusWordsDictionary.Add(thesaurusWord.GetTargetWord(), thesaurusWord);
+            if (!_thesaurusWordsDictionary.ContainsKey(thesaurusWord.GetKey()))
+                _thesaurusWordsDictionary.Add(thesaurusWord.GetKey(), thesaurusWord);
             else
-                _thesaurusWordsDictionary[thesaurusWord.GetTargetWord()] = thesaurusWord;
+                _thesaurusWordsDictionary[thesaurusWord.GetKey()] = thesaurusWord;
         }
 
         /// <summary>
@@ -85,9 +85,9 @@ namespace iThesaurusChallenge
             throw new NotImplementedException();
         }
 
-        public void Load(string resourceFileName)
+        public void Load(string fileName)
         {
-            var thesaurusWordsJsonAll = GetEmbeddedResourceAsString(String.IsNullOrEmpty(resourceFileName) ? "thesaurausSeedData.json" : resourceFileName);
+            var thesaurusWordsJsonAll = GetEmbeddedResourceAsString(String.IsNullOrEmpty(fileName) ? "thesaurausSeedData.json" : fileName);
 
             JArray jsonValThesaurusWords = JArray.Parse(thesaurusWordsJsonAll) as JArray;
             dynamic thesaurusData = jsonValThesaurusWords;

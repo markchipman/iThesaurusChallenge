@@ -13,9 +13,9 @@ namespace iThesaurusChallenge
     {
 
         /// <summary>
-        /// Current name
+        /// Key
         /// </summary>
-        private readonly string _targetWord;
+        private readonly string _key;
 
         /// <summary>
         /// List of synonym
@@ -28,7 +28,7 @@ namespace iThesaurusChallenge
         /// <param name="word">The name.</param>
         public ThesaurusWord(string word)
         {
-            _targetWord = word;
+            _key = word;
             _synonymsList = new List<string>();
         }
 
@@ -47,9 +47,9 @@ namespace iThesaurusChallenge
         /// Gets the name
         /// </summary>
         /// <returns>Name</returns>
-        public string GetTargetWord()
+        public string GetKey()
         {
-            return _targetWord;
+            return _key;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace iThesaurusChallenge
             var candidateWordList = synonyms as IList<string> ?? synonyms.ToList();
             foreach (var word in candidateWordList)
             {
-                if (!candidateWordList.Contains(word) && word != _targetWord)
+                if (!candidateWordList.Contains(word) && word != _key)
                 {
                     _synonymsList.Add(word);
                 }

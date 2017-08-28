@@ -10,7 +10,7 @@ namespace iThesaurusChallenge.Interfaces
     /// ThesaurusWord Repository
     /// </summary>
     /// <seealso cref="ThesaurusWord" />
-    public interface IThesuarusWordRepository : IRepository<ThesaurusWord>
+    public interface IThesaurusWordRepository : IRepository<ThesaurusWord>
     {
         /// <summary>
         /// Gets the theasaurusWord object by targeted word

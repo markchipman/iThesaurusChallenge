@@ -53,6 +53,7 @@
     <Compile Include="Thesaurus.cs" />
     <Compile Include="ThesaurusWord.cs" />
     <Compile Include="ThesaurusDataStore.cs" />
+    <Compile Include="ThesaurusWordCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
