@@ -10,7 +10,7 @@ namespace iThesaurusChallenge.Interfaces
     /// Represents a Data Repository.
     /// </summary>
     /// <typeparam name="T">Data</typeparam>
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         /// <summary>
         /// Updates the specified entity.

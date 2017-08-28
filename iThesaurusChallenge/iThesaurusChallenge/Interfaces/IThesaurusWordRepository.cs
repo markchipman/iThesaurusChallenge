@@ -10,13 +10,25 @@ namespace iThesaurusChallenge.Interfaces
     /// ThesaurusWord Repository
     /// </summary>
     /// <seealso cref="ThesaurusWord" />
-    interface IWordRepository : IRepository<ThesaurusWord>
+    public interface IThesuarusWordRepository : IRepository<ThesaurusWord>
     {
         /// <summary>
-        /// Gets the theasaurusWord object by targeted word.
+        /// Gets the theasaurusWord object by targeted word
         /// </summary>
-        /// <param name="targetedWord">The word.</param>
+        /// <param name="targetedWord">The targeted word</param>
         /// <returns>ThesaurusWord</returns>
         ThesaurusWord GetByWord(String targetedWord);
+
+        /// <summary>
+        /// Saves the data to the specified file
+        /// </summary>
+        /// <param name="fileName">The file to save data to</param>
+        void Save(String fileName);
+
+        /// <summary>
+        /// Loads the data from the specified resource file
+        /// </summary>
+        /// <param name="resourceFileName">The file to load from</param>
+        void Load(String resourceFileName);
     }
 }
