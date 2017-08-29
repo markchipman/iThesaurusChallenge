@@ -74,9 +74,11 @@ namespace iThesaurusChallenge
                 return null;
             }
 
-            var cachedThesaurusWordWord = _wordCache[targetWord];
+            ThesaurusWord cachedThesaurusWord;
 
-            return cachedThesaurusWordWord ?? _wordStore.GetByWord(targetWord);
+            _wordCache.TryGetValue(targetWord, out cachedThesaurusWord);
+
+            return cachedThesaurusWord ?? _wordStore.GetByWord(targetWord);
         }
 
         /// <summary>
@@ -85,9 +87,12 @@ namespace iThesaurusChallenge
         /// <param name="thesaurusWordObject">The thesaurusWord object</param>
         public void Insert(ThesaurusWord thesaurusWordObject)
         {
-            _wordCache.Add(thesaurusWordObject.GetKey(), thesaurusWordObject);
-            _wordStore.Insert(thesaurusWordObject);
-            // _wordStore.Save("thesaurus.json");
+            if (!_wordCache.ContainsKey(thesaurusWordObject.GetKey()))
+            {
+                _wordCache.Add(thesaurusWordObject.GetKey(), thesaurusWordObject);
+                _wordStore.Insert(thesaurusWordObject);
+                // _wordStore.Save("thesaurus.json");
+            }
         }
 
         /// <summary>
@@ -112,9 +117,12 @@ namespace iThesaurusChallenge
         /// <param name="thesaurusWordObject">The thesaurusWord object</param>
         public void Update(ThesaurusWord thesaurusWordObject)
         {
-            _wordCache.Add(thesaurusWordObject.GetKey(), thesaurusWordObject);
-            _wordStore.Update(thesaurusWordObject);
-            // _wordStore.Save("thesaurus.json");
+            if (!_wordCache.ContainsKey(thesaurusWordObject.GetKey()))
+            {
+                _wordCache.Add(thesaurusWordObject.GetKey(), thesaurusWordObject);
+                _wordStore.Update(thesaurusWordObject);
+                // _wordStore.Save("thesaurus.json");
+            }
         }
     }
 }

@@ -60,19 +60,21 @@ namespace iThesaurusChallenge
         {
             if (synonyms == null) return;
 
-            _synonymsList.Clear(); // make sure that the synonym list is reset
+            // NOTE: This didn't work afterall :(
+            // _synonymsList.Clear(); // make sure that the synonym list is reset
 
-            var candidateWordList = synonyms as IList<string> ?? synonyms.ToList();
-            foreach (var word in candidateWordList)
-            {
-                if (!candidateWordList.Contains(word) && word != _key)
-                {
-                    _synonymsList.Add(word);
-                }
-            }
-            // possibly better solution using linq -- see: https://www.dotnetperls.com/union - Union removes duplicates... it combines the two collections and then uses Distinct() on them, removing duplicate elements.
-            // var synonymListWithoutName = synonyms.Where(x => x != _targetWord);
-            // _synonymsList = _synonymsList.Union(synonymListWithoutName).ToList();
+            // var candidateWordList = synonyms as IList<string> ?? synonyms.ToList();
+            // foreach (var word in candidateWordList)
+            // {
+            //    if (!candidateWordList.Contains(word) && word != _key)
+            //    {
+            //        _synonymsList.Add(word);
+            //    }
+            // }
+
+            // after some googling, i found a workable solution using linq -- see: https://www.dotnetperls.com/union - Union removes duplicates... it combines the two collections and then uses Distinct() on them, removing duplicate elements.
+            var synonymListWithoutName = synonyms.Where(x => x != _key);
+            _synonymsList = _synonymsList.Union(synonymListWithoutName).ToList();
         }
 
         #endregion
